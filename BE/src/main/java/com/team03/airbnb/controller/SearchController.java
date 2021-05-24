@@ -1,6 +1,5 @@
 package com.team03.airbnb.controller;
 
-import com.team03.airbnb.dao.HotelDAO;
 import com.team03.airbnb.dao.LocationDAO;
 import com.team03.airbnb.dto.HotelCardDTO;
 import com.team03.airbnb.dto.HotelDetailDTO;

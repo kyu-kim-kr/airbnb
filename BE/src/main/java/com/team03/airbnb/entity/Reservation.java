@@ -8,6 +8,7 @@ public class Reservation {
     private Integer numberOfGuests; // 총 게스트 수
     private String locationName; // LocationDTO의 `name`을 가져옴
     private Integer userId;
+    private Integer hotelId;
 
     public Long getId() {
         return id;
@@ -63,5 +64,13 @@ public class Reservation {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public Integer getHotelId() {
+        return hotelId;
+    }
+
+    public void setHotelId(Integer hotelId) {
+        this.hotelId = hotelId;
     }
 }
