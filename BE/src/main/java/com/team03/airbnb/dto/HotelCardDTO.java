@@ -7,15 +7,15 @@ public class HotelCardDTO {
     private String imageUrl;
     private String title;
     private Double reviewStarPoint;
-    private Integer reviewNumber;
+    private Integer reviewCount;
     private Integer price;
 
-    public HotelCardDTO(Long id, String imageUrl, String title, Double reviewStarPoint, Integer reviewNumber, Integer price) {
+    public HotelCardDTO(Long id, String imageUrl, String title, Double reviewStarPoint, Integer reviewCount, Integer price) {
         this.id = id;
         this.imageUrl = imageUrl;
         this.title = title;
         this.reviewStarPoint = reviewStarPoint;
-        this.reviewNumber = reviewNumber;
+        this.reviewCount = reviewCount;
         this.price = price;
     }
 
@@ -35,8 +35,8 @@ public class HotelCardDTO {
         return reviewStarPoint;
     }
 
-    public Integer getReviewNumber() {
-        return reviewNumber;
+    public Integer getReviewCount() {
+        return reviewCount;
     }
 
     public Integer getPrice() {
@@ -49,7 +49,7 @@ public class HotelCardDTO {
                 hotel.getImageUrl(),
                 hotel.getTitle(),
                 hotel.getReviewStarPoint(),
-                hotel.getReviewNumber(),
+                hotel.getReviewCount(),
                 hotel.getPrice()
         );
     }

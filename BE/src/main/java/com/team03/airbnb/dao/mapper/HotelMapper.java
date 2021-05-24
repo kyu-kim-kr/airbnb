@@ -18,13 +18,13 @@ public class HotelMapper implements RowMapper<Hotel> {
         hotel.setImageUrl(rs.getString("image_url"));
         hotel.setTitle(rs.getString("title"));
         hotel.setReviewStarPoint(rs.getDouble("review_star_point"));
-        hotel.setReviewNumber(rs.getInt("review_number"));
+        hotel.setReviewCount(rs.getInt("review_count"));
         hotel.setLocationName(rs.getString("location_name"));
         hotel.setHostId(rs.getLong("host_id"));
         hotel.setMaximumOccupancy(rs.getInt("maximum_occupancy"));
         hotel.setNumberOfBeds(rs.getInt("number_of_beds"));
         hotel.setNumberOfBathrooms(rs.getInt("number_of_bathrooms"));
-        hotel.setIsOneroom(rs.getBoolean("is_oneroom"));
+        hotel.setOneroom(rs.getBoolean("is_oneroom"));
         hotel.setDescription(rs.getString("description"));
         hotel.setPrice(rs.getInt("price"));
 

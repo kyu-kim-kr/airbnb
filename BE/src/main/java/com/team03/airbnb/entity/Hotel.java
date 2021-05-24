@@ -5,7 +5,7 @@ public class Hotel {
     private String imageUrl;
     private String title;
     private Double reviewStarPoint;
-    private Integer reviewNumber;
+    private Integer reviewCount;
     private String locationName;
     private Long hostId;
     private Integer maximumOccupancy;
@@ -47,12 +47,12 @@ public class Hotel {
         this.reviewStarPoint = reviewStarPoint;
     }
 
-    public Integer getReviewNumber() {
-        return reviewNumber;
+    public Integer getReviewCount() {
+        return reviewCount;
     }
 
-    public void setReviewNumber(Integer reviewNumber) {
-        this.reviewNumber = reviewNumber;
+    public void setReviewCount(Integer reviewCount) {
+        this.reviewCount = reviewCount;
     }
 
     public String getLocationName() {
@@ -99,8 +99,8 @@ public class Hotel {
         return isOneroom;
     }
 
-    public void setIsOneroom(boolean isOneroom) {
-        this.isOneroom = isOneroom;
+    public void setOneroom(boolean oneroom) {
+        isOneroom = oneroom;
     }
 
     public String getDescription() {

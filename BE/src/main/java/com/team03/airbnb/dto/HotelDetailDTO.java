@@ -11,7 +11,7 @@ public class HotelDetailDTO {
     private List<String> imageUrl;
     private String title;
     private Double reviewStarPoint;
-    private Integer reviewNumber;
+    private Integer reviewCount;
     private String locationName;
     private HostDTO host;
     private Integer maximumOccupancy;
@@ -21,12 +21,12 @@ public class HotelDetailDTO {
     private String description;
     private Integer price;
 
-    public HotelDetailDTO(Long id, List<String> imageUrl, String title, Double reviewStarPoint, Integer reviewNumber, String locationName, HostDTO host, Integer maximumOccupancy, Integer numberOfBeds, Integer numberOfBathrooms, boolean isOneroom, String description, Integer price) {
+    public HotelDetailDTO(Long id, List<String> imageUrl, String title, Double reviewStarPoint, Integer reviewCount, String locationName, HostDTO host, Integer maximumOccupancy, Integer numberOfBeds, Integer numberOfBathrooms, boolean isOneroom, String description, Integer price) {
         this.id = id;
         this.imageUrl = imageUrl;
         this.title = title;
         this.reviewStarPoint = reviewStarPoint;
-        this.reviewNumber = reviewNumber;
+        this.reviewCount = reviewCount;
         this.locationName = locationName;
         this.host = host;
         this.maximumOccupancy = maximumOccupancy;
@@ -43,7 +43,7 @@ public class HotelDetailDTO {
                 toList(hotel.getImageUrl()),
                 hotel.getTitle(),
                 hotel.getReviewStarPoint(),
-                hotel.getReviewNumber(),
+                hotel.getReviewCount(),
                 hotel.getLocationName(),
                 new HostDTO(1L, "exampleName", "https://previews.123rf.com/images/fordzolo/fordzolo1506/fordzolo150600296/41026708-example-white-stamp-text-on-red-backgroud.jpg"),
                 hotel.getMaximumOccupancy(),
@@ -71,8 +71,8 @@ public class HotelDetailDTO {
         return reviewStarPoint;
     }
 
-    public Integer getReviewNumber() {
-        return reviewNumber;
+    public Integer getReviewCount() {
+        return reviewCount;
     }
 
     public String getLocationName() {
