@@ -26,4 +26,10 @@ public class HotelDAO {
         List<Hotel> hotels = this.jdbcTemplate.query(query, new HotelMapper());
         return hotels;
     }
+
+    public Hotel findHotelDetailById(Integer id) {
+        String query = "select * from hotel where id = " + id;
+        Hotel hotel = this.jdbcTemplate.queryForObject(query, new HotelMapper());
+        return hotel;
+    }
 }

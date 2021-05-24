@@ -3,6 +3,7 @@ package com.team03.airbnb.controller;
 import com.team03.airbnb.dao.HotelDAO;
 import com.team03.airbnb.dao.LocationDAO;
 import com.team03.airbnb.dto.HotelCardDTO;
+import com.team03.airbnb.dto.HotelDetailDTO;
 import com.team03.airbnb.entity.Location;
 import com.team03.airbnb.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,6 @@ public class SearchController {
 
     @Autowired
     private LocationDAO locationDAO;
-
-    @Autowired
-    private HotelDAO hotelDAO;
 
     @Autowired
     private HotelService hotelService;
@@ -35,4 +33,9 @@ public class SearchController {
        return hotels;
     }
 
+    @GetMapping("/detail/{id}")
+    public HotelDetailDTO findHotelDetailById(@PathVariable Integer id) {
+        HotelDetailDTO hotelDetailDTO = hotelService.findHotelDetailById(id);
+        return hotelDetailDTO;
+    }
 }

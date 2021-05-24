@@ -1,8 +1,8 @@
 package com.team03.airbnb.service;
 
 import com.team03.airbnb.dao.HotelDAO;
-import com.team03.airbnb.dao.mapper.HotelMapper;
 import com.team03.airbnb.dto.HotelCardDTO;
+import com.team03.airbnb.dto.HotelDetailDTO;
 import com.team03.airbnb.entity.Hotel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +15,12 @@ public class HotelService {
 
     @Autowired
     private HotelDAO hotelDAO;
+
+    public HotelDetailDTO findHotelDetailById(Integer id) {
+        Hotel hotel = hotelDAO.findHotelDetailById(id);
+        HotelDetailDTO hotelDetailDTO = HotelDetailDTO.of(hotel);
+        return hotelDetailDTO;
+    }
 
 
     public List<HotelCardDTO> findAllHotelCardsByLocationName(String locationName) {
