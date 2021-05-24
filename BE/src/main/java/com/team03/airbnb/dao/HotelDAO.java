@@ -21,12 +21,9 @@ public class HotelDAO {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<HotelCardDTO> findAllHotelCardsByLocationName(String locationName) {
+    public List<Hotel> findAllHotelCardsByLocationName(String locationName) {
         String query = "select * from hotel where location_name = " + "\'" + locationName + "\'";
-        List<HotelCardDTO> hotels = this.jdbcTemplate.query(query, new HotelMapper())
-                .stream()
-                .map(hotel -> HotelCardDTO.of(hotel))
-                .collect(Collectors.toList());
+        List<Hotel> hotels = this.jdbcTemplate.query(query, new HotelMapper());
         return hotels;
     }
 }
