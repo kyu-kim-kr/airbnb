@@ -23,4 +23,18 @@ public class ReservationDAO {
         return reservations;
     }
 
+    public void save(Reservation reservation) {
+        String query = "insert into reservation (id, total_price, check_in, check_out, number_of_guests, location_name, user_id, hotel_id) values (?, ?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(query, new Object[]{
+                reservation.getId(),
+                reservation.getTotalPrice(),
+                reservation.getCheckIn(),
+                reservation.getCheckIn(),
+                reservation.getNumberOfGuests(),
+                reservation.getLocationName(),
+                reservation.getUserId(),
+                reservation.getHotelId()
+        });
+    }
+
 }

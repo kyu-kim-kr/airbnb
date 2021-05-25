@@ -16,7 +16,7 @@ public class HotelService {
     @Autowired
     private HotelDAO hotelDAO;
 
-    public HotelDetailDTO findHotelDetailById(Integer id) {
+    public HotelDetailDTO findHotelDetailById(Long id) {
         Hotel hotel = hotelDAO.findHotelDetailById(id);
         HotelDetailDTO hotelDetailDTO = HotelDetailDTO.of(hotel);
         return hotelDetailDTO;
