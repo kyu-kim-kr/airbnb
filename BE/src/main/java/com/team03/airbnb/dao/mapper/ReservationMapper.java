@@ -16,7 +16,9 @@ public class ReservationMapper implements RowMapper<Reservation> {
         reservation.setCheckOut(rs.getString("check_out"));
         reservation.setNumberOfGuests(rs.getInt("number_of_guests"));
         reservation.setTotalPrice(rs.getInt("total_price"));
-        reservation.setLocationName("location_name");
+        reservation.setLocationName(rs.getString("location_name"));
+        reservation.setUserId(rs.getLong("user_id"));
+        reservation.setHotelId(rs.getLong("hotel_id"));
         return reservation;
     }
 }

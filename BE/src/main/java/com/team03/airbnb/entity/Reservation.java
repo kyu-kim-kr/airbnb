@@ -99,4 +99,11 @@ public class Reservation {
                 requestDTO.getHostId()
         );
     }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "hotelId=" + hotelId +
+                '}';
+    }
 }

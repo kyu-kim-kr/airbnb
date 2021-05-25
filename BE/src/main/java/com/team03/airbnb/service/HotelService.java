@@ -26,9 +26,9 @@ public class HotelService {
     public List<HotelCardDTO> findAllHotelCardsByLocationName(String locationName) {
         List<Hotel> hotels = hotelDAO.findAllHotelCardsByLocationName(locationName);
         List<HotelCardDTO> hotelCardDTOs = hotels
-                                           .stream()
-                                           .map(hotel -> HotelCardDTO.of(hotel))
-                                           .collect(Collectors.toList());
+                .stream()
+                .map(hotel -> HotelCardDTO.of(hotel))
+                .collect(Collectors.toList());
         return hotelCardDTOs;
     }
 }

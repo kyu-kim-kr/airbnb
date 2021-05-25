@@ -37,4 +37,9 @@ public class ReservationDAO {
         });
     }
 
+    public List<Reservation> findAllCardsByUserId(Long userId) {
+        String query = "select * from reservation where user_id = " + userId;
+        List<Reservation> reservations = this.jdbcTemplate.query(query, new ReservationMapper());
+        return reservations;
+    }
 }
