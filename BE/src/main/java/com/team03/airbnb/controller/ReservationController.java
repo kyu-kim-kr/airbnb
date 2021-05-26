@@ -33,4 +33,10 @@ public class ReservationController {
     public ReservationDetailDTO findReservationDetail(@PathVariable Long reservationId) {
         return reservationService.findReservatonDetail(reservationId);
     }
+
+    @DeleteMapping("/delete/{reservationId}")
+    public ResponseEntity deleteReservation(@PathVariable Long reservationId) {
+        reservationService.deleteReservation(reservationId);
+        return new ResponseEntity("success", HttpStatus.OK);
+    }
 }

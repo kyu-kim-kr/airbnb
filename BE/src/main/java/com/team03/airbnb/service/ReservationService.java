@@ -64,4 +64,7 @@ public class ReservationService {
         return detailDTO;
     }
 
+    public void deleteReservation(Long reservationId) {
+        reservationDAO.deleteReservation(reservationId);
+    }
 }

@@ -48,4 +48,9 @@ public class ReservationDAO {
         Reservation reservation = this.jdbcTemplate.queryForObject(query, new ReservationMapper());
         return reservation;
     }
+
+    public void deleteReservation(Long reservationId) {
+        String query = "delete from reservation where id = ?";
+        jdbcTemplate.update(query, new Object[]{reservationId});
+    }
 }
