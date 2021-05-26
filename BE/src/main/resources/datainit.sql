@@ -1,16 +1,16 @@
 -- -----------------------------------------------------
 -- 데이터 `airbnb`.`location`
 -- -----------------------------------------------------
-INSERT INTO `location` (`name`,`distance`) VALUES ('서울',30);
-INSERT INTO `location` (`name`,`distance`) VALUES ('부산',270);
-INSERT INTO `location` (`name`,`distance`) VALUES ('광주',240);
-INSERT INTO `location` (`name`,`distance`) VALUES ('의정부시',30);
-INSERT INTO `location` (`name`,`distance`) VALUES ('수원시',45);
-INSERT INTO `location` (`name`,`distance`) VALUES ('대구', 210);
-INSERT INTO `location` (`name`,`distance`) VALUES ('울산', 270);
-INSERT INTO `location` (`name`,`distance`) VALUES ('대전', 120);
-INSERT INTO `location` (`name`,`distance`) VALUES ('부천시', 30);
-INSERT INTO `location` (`name`,`distance`) VALUES ('뉴질랜드', 660);
+INSERT INTO `location` (`name`,`avatar_url`,`distance`) VALUES ('서울','https://user-images.githubusercontent.com/59721293/119633209-9d99aa80-be65-11eb-9fae-9d70c331efed.png',30);
+INSERT INTO `location` (`name`,`avatar_url`,`distance`) VALUES ('부산','https://user-images.githubusercontent.com/59721293/119633189-9a9eba00-be65-11eb-85b4-a18dbcfca40a.png',270);
+INSERT INTO `location` (`name`,`avatar_url`,`distance`) VALUES ('광주','https://user-images.githubusercontent.com/59721293/119633196-9c687d80-be65-11eb-9933-eb4175799d0b.png',240);
+INSERT INTO `location` (`name`,`avatar_url`,`distance`) VALUES ('의정부시','https://user-images.githubusercontent.com/59721293/119633200-9d011400-be65-11eb-8aed-9c2685ed7afa.png',30);
+INSERT INTO `location` (`name`,`avatar_url`,`distance`) VALUES ('수원시','https://user-images.githubusercontent.com/59721293/119633202-9d99aa80-be65-11eb-8de4-45868049f562.png',45);
+INSERT INTO `location` (`name`,`avatar_url`,`distance`) VALUES ('대구','https://user-images.githubusercontent.com/59721293/119633212-9e324100-be65-11eb-93ed-fec918ad8edd.png',210);
+INSERT INTO `location` (`name`,`avatar_url`,`distance`) VALUES ('울산','https://user-images.githubusercontent.com/59721293/119633213-9ecad780-be65-11eb-804a-b5309ba0d393.png',270);
+INSERT INTO `location` (`name`,`avatar_url`,`distance`) VALUES ('대전','https://user-images.githubusercontent.com/59721293/119633214-9ecad780-be65-11eb-8de7-cbc1222659a6.png',120);
+INSERT INTO `location` (`name`,`avatar_url`,`distance`) VALUES ('부천시','https://user-images.githubusercontent.com/59721293/119633202-9d99aa80-be65-11eb-8de4-45868049f562.png',30);
+INSERT INTO `location` (`name`,`avatar_url`,`distance`) VALUES ('뉴질랜드','https://user-images.githubusercontent.com/59721293/119634791-311fab00-be67-11eb-8baf-a7549197d4a8.jpg',660);
 
 -- -----------------------------------------------------
 -- 데이터 `airbnb`.`host`
