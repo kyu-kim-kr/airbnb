@@ -42,4 +42,10 @@ public class ReservationDAO {
         List<Reservation> reservations = this.jdbcTemplate.query(query, new ReservationMapper());
         return reservations;
     }
+
+    public Reservation findReservationDetail(Long reservationId) {
+        String query = "select * from reservation where id = " + reservationId;
+        Reservation reservation = this.jdbcTemplate.queryForObject(query, new ReservationMapper());
+        return reservation;
+    }
 }

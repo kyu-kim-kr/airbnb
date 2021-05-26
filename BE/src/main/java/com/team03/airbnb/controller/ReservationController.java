@@ -1,6 +1,7 @@
 package com.team03.airbnb.controller;
 
 import com.team03.airbnb.dto.ReservationCardDTO;
+import com.team03.airbnb.dto.ReservationDetailDTO;
 import com.team03.airbnb.dto.ReservationRequestDTO;
 import com.team03.airbnb.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,10 @@ public class ReservationController {
     @GetMapping("/{userId}/list")
     public List<ReservationCardDTO> findAllCards(@PathVariable Long userId) {
         return reservationService.findAllCards(userId);
+    }
+
+    @GetMapping("/detail/{reservationId}")
+    public ReservationDetailDTO findReservationDetail(@PathVariable Long reservationId) {
+        return reservationService.findReservatonDetail(reservationId);
     }
 }

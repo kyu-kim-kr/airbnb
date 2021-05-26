@@ -3,6 +3,7 @@ package com.team03.airbnb.service;
 import com.team03.airbnb.dao.ReservationDAO;
 import com.team03.airbnb.dto.HotelDetailDTO;
 import com.team03.airbnb.dto.ReservationCardDTO;
+import com.team03.airbnb.dto.ReservationDetailDTO;
 import com.team03.airbnb.dto.ReservationRequestDTO;
 import com.team03.airbnb.entity.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,13 +36,9 @@ public class ReservationService {
     public List<ReservationCardDTO> findAllCards(Long userId) {
         List<Reservation> reservations = reservationDAO.findAllCardsByUserId(userId);
 
-        System.out.println(reservations);
-
         List<ReservationCardDTO> cards = reservations.stream()
                 .map(reservation -> ReservationCardDTO.of(reservation))
                 .collect(Collectors.toList());
-
-        System.out.println(cards.toString());
 
         setImageUrlOfReservations(cards);
         return cards;
@@ -56,4 +53,15 @@ public class ReservationService {
     private String getThumbnailUrl(List<String> urls) {
         return urls.get(0);
     }
+
+    public ReservationDetailDTO findReservatonDetail(Long reservationId) {
+        Reservation reservation = reservationDAO.findReservationDetail(reservationId);
+        ReservationDetailDTO detailDTO = ReservationDetailDTO.of(reservation);
+
+        detailDTO.setHost(hotelService.findHotelDetailById(detailDTO.getHotelId()).getHost());
+        detailDTO.setImageUrl(hotelService.findHotelDetailById(detailDTO.getHotelId()).getImageUrl());
+        detailDTO.setOneroom(hotelService.findHotelDetailById(detailDTO.getHotelId()).isOneroom());
+        return detailDTO;
+    }
+
 }
