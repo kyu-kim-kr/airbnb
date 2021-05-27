@@ -4,10 +4,7 @@ import com.team03.airbnb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/wishList")
@@ -21,4 +18,12 @@ public class WishListController {
         userService.addNewWish(userId, hotelId);
         return new ResponseEntity("success", HttpStatus.OK);
     }
+
+    @DeleteMapping("/{userId}/delete/{hotelId}")
+    public ResponseEntity removeWish(@PathVariable Long userId, @PathVariable Long hotelId) {
+        userService.removeWish(userId, hotelId);
+        return new ResponseEntity<>("success", HttpStatus.OK);
+    }
+
+
 }

@@ -18,18 +18,34 @@ public class UserService {
     private UserDAO userDAO;
 
     public void addNewWish(Long userId, Long hotelId) {
-        List<String> wishList = addNewWishToList(userId, hotelId);
+        List<String> wishList = stringToList(userId);
+        add(wishList, hotelId);
         WishListRequestDTO wishListDTO = new WishListRequestDTO(userId, wishList);
         User user = User.of(wishListDTO);
         userDAO.addNewWish(user);
     }
 
-    private List<String> addNewWishToList(Long userId, Long hotelId) {
-       User user = userDAO.findUserByUserId(userId);
-       List<String> wishList = toList(user.getWishList());
-       wishList = new ArrayList<>(wishList);
-       wishList.add(String.valueOf(hotelId));
-       return wishList;
+    public void removeWish(Long userId, Long hotelId) {
+        List<String> wishList = stringToList(userId);
+        remove(wishList, hotelId);
+        WishListRequestDTO wishListDTO = new WishListRequestDTO(userId, wishList);
+        User user = User.of(wishListDTO);
+        userDAO.removeWish(user);
     }
 
+    private List<String> stringToList(Long userId) {
+        User user = userDAO.findUserByUserId(userId);
+        List<String> wishList = toList(user.getWishList());
+        wishList = new ArrayList<>(wishList);
+        return wishList;
+    }
+
+    private void add(List<String> wishList, Long hotelId) {
+        wishList.add(String.valueOf(hotelId));
+    }
+
+    private void remove(List<String> wishList, Long hotelId) {
+        int index = wishList.indexOf(String.valueOf(hotelId));
+        wishList.remove(index);
+    }
 }
