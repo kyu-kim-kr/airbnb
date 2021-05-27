@@ -1,11 +1,7 @@
 package com.team03.airbnb.dao;
 
-import com.team03.airbnb.dao.mapper.LocationMapper;
 import com.team03.airbnb.dao.mapper.UserMapper;
-import com.team03.airbnb.entity.Location;
 import com.team03.airbnb.entity.User;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -27,5 +23,16 @@ public class UserDAO {
         String query = "select * from user";
         List<User> users = this.jdbcTemplate.query(query, new UserMapper());
         return users;
+    }
+
+    public User findUserByUserId(Long userId) {
+        String query = "select * from user where id = " + userId;
+        User user = this.jdbcTemplate.queryForObject(query, new UserMapper());
+        return user;
+    }
+
+    public void addNewWish(User user) {
+        String query = "update user set wish_list = ? where id = ?";
+        this.jdbcTemplate.update(query, user.getWishList(), user.getId());
     }
 }
