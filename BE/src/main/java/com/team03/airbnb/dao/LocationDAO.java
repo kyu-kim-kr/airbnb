@@ -18,7 +18,7 @@ public class LocationDAO {
     }
 
     public List<Location> findAll() {
-        String query = "select * from location";
+        String query = "select * from location order by distance asc";
         List<Location> locations = this.jdbcTemplate.query(query, new LocationMapper());
         return locations;
     }
@@ -27,7 +27,7 @@ public class LocationDAO {
         if (limit == null) {
             return this.findAll();
         } else {
-            String query = "select * from location LIMIT " + limit;
+            String query = "select * from location order by distance asc LIMIT " + limit;
             List<Location> locations = this.jdbcTemplate.query(query, new LocationMapper());
             return locations;
         }
