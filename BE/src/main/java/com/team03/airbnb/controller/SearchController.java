@@ -33,8 +33,8 @@ public class SearchController {
     }
 
     @GetMapping("/detail/{id}")
-    public HotelDetailDTO findHotelDetailById(@PathVariable Long id) {
-        HotelDetailDTO hotelDetailDTO = hotelService.findHotelDetailById(id);
+    public HotelDetailDTO findHotelDetailByID(@PathVariable Long id) {
+        HotelDetailDTO hotelDetailDTO = hotelService.findHotelDetailByID(id);
         return hotelDetailDTO;
     }
 }

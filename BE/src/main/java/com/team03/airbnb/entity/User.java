@@ -1,5 +1,7 @@
 package com.team03.airbnb.entity;
 
+import com.team03.airbnb.dto.WishListRequestDTO;
+
 public class User {
 
     private String login; // 깃헙아이디 예시: ellyheetov, jeonyeonkyu)
@@ -7,6 +9,14 @@ public class User {
     private String avatar_url; // 프로필사진url
     private String wishList; // ", "로 구분 hotel의 고유번호를 보관
     private String reservationList;
+
+    public User() {
+    }
+
+    public User(Long id, String wishList) {
+        this.id = id;
+        this.wishList = wishList;
+    }
 
     public String getLogin() {
         return login;
@@ -46,5 +56,12 @@ public class User {
 
     public void setReservationList(String reservationList) {
         this.reservationList = reservationList;
+    }
+
+    public static User of(WishListRequestDTO wishListRequestDTO) {
+        return new User(
+                wishListRequestDTO.getUserId(),
+                wishListRequestDTO.getWishList()
+        );
     }
 }

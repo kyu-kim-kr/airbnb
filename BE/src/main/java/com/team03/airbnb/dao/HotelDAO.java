@@ -1,14 +1,12 @@
 package com.team03.airbnb.dao;
 
 import com.team03.airbnb.dao.mapper.HotelMapper;
-import com.team03.airbnb.dto.HotelCardDTO;
 import com.team03.airbnb.entity.Hotel;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Repository
 public class HotelDAO {
@@ -27,7 +25,7 @@ public class HotelDAO {
         return hotels;
     }
 
-    public Hotel findHotelDetailById(Long id) {
+    public Hotel findHotelByID(Long id) {
         String query = "select * from hotel where id = " + id;
         Hotel hotel = this.jdbcTemplate.queryForObject(query, new HotelMapper());
         return hotel;

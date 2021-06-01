@@ -29,7 +29,7 @@ public class ReservationService {
     }
 
     private void setLocationNameOfReservationRequest(ReservationRequestDTO requestDTO) {
-        HotelDetailDTO hotelDetailDTO = hotelService.findHotelDetailById(requestDTO.getHotelId());
+        HotelDetailDTO hotelDetailDTO = hotelService.findHotelDetailByID(requestDTO.getHotelId());
         requestDTO.setLocationName(hotelDetailDTO.getLocationName());
     }
 
@@ -46,7 +46,7 @@ public class ReservationService {
 
     private void setImageUrlOfReservations(List<ReservationCardDTO> cards) {
        for(ReservationCardDTO card : cards) {
-            card.setImageUrl(getThumbnailUrl(hotelService.findHotelDetailById(card.getHotelId()).getImageUrl()));
+            card.setImageUrl(getThumbnailUrl(hotelService.findHotelDetailByID(card.getHotelId()).getImageUrl()));
        }
     }
 
@@ -58,9 +58,9 @@ public class ReservationService {
         Reservation reservation = reservationDAO.findReservationDetail(reservationId);
         ReservationDetailDTO detailDTO = ReservationDetailDTO.of(reservation);
 
-        detailDTO.setHost(hotelService.findHotelDetailById(detailDTO.getHotelId()).getHost());
-        detailDTO.setImageUrl(hotelService.findHotelDetailById(detailDTO.getHotelId()).getImageUrl());
-        detailDTO.setOneroom(hotelService.findHotelDetailById(detailDTO.getHotelId()).isOneroom());
+        detailDTO.setHost(hotelService.findHotelDetailByID(detailDTO.getHotelId()).getHost());
+        detailDTO.setImageUrl(hotelService.findHotelDetailByID(detailDTO.getHotelId()).getImageUrl());
+        detailDTO.setOneroom(hotelService.findHotelDetailByID(detailDTO.getHotelId()).isOneroom());
         return detailDTO;
     }
 
