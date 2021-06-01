@@ -25,7 +25,7 @@ public class HotelDAO {
         return hotels;
     }
 
-    public Hotel findHotelDetailById(Long id) {
+    public Hotel findHotelByID(Long id) {
         String query = "select * from hotel where id = " + id;
         Hotel hotel = this.jdbcTemplate.queryForObject(query, new HotelMapper());
         return hotel;

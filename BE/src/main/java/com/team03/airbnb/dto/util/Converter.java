@@ -8,11 +8,11 @@ public class Converter {
     private Converter() {
     }
 
-    public static List<String> toList(String url) {
-        if (url == null) {
+    public static List<String> toList(String str) {
+        if (str == null) {
             return null;
         }
-        List<String> list = Arrays.asList(url.split(", "));
+        List<String> list = Arrays.asList(str.split(", "));
         return list;
     }
 

@@ -16,8 +16,8 @@ public class HotelService {
     @Autowired
     private HotelDAO hotelDAO;
 
-    public HotelDetailDTO findHotelDetailById(Long id) {
-        Hotel hotel = hotelDAO.findHotelDetailById(id);
+    public HotelDetailDTO findHotelDetailByID(Long id) {
+        Hotel hotel = hotelDAO.findHotelByID(id);
         HotelDetailDTO hotelDetailDTO = HotelDetailDTO.of(hotel);
         return hotelDetailDTO;
     }
@@ -30,5 +30,10 @@ public class HotelService {
                 .map(hotel -> HotelCardDTO.of(hotel))
                 .collect(Collectors.toList());
         return hotelCardDTOs;
+    }
+
+    public HotelCardDTO findHotelCardByHotelId(Long hotelId) {
+        Hotel hotel = hotelDAO.findHotelByID(hotelId);
+        return HotelCardDTO.of(hotel);
     }
 }

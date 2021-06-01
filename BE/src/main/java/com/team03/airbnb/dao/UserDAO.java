@@ -40,5 +40,6 @@ public class UserDAO {
         String query = "update user set wish_list = ? where id = ?";
         this.jdbcTemplate.update(query, user.getWishList(), user.getId());
     }
+
 }
 

@@ -1,6 +1,7 @@
 package com.team03.airbnb.service;
 
 import com.team03.airbnb.dao.UserDAO;
+import com.team03.airbnb.dto.HotelCardDTO;
 import com.team03.airbnb.dto.WishListRequestDTO;
 import com.team03.airbnb.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,10 @@ import java.util.List;
 import static com.team03.airbnb.dto.util.Converter.toList;
 
 @Service
-public class UserService {
+public class WishService {
+
+    @Autowired
+    HotelService hotelService;
 
     @Autowired
     private UserDAO userDAO;
@@ -47,5 +51,16 @@ public class UserService {
     private void remove(List<String> wishList, Long hotelId) {
         int index = wishList.indexOf(String.valueOf(hotelId));
         wishList.remove(index);
+    }
+
+    public List<HotelCardDTO> findWishList(Long userId) {
+        User user = userDAO.findUserByUserId(userId);
+        List<String> list = toList(user.getWishList());
+
+        List<HotelCardDTO> cardDTOs = new ArrayList<>();
+        for (String str : list) {
+            cardDTOs.add(hotelService.findHotelCardByHotelId(Long.valueOf(str)));
+        }
+        return cardDTOs;
     }
 }
