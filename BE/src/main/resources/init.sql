@@ -30,6 +30,8 @@ CREATE TABLE IF NOT EXISTS `airbnb`.`location`
     `name`       VARCHAR(255) NOT NULL,
     `avatar_url` VARCHAR(255) NULL DEFAULT NULL,
     `distance`   INT(11)      NULL DEFAULT NULL,
+    `x`          DOUBLE       NULL DEFAULT NULL,
+    `y`          DOUBLE       NULL DEFAULT NULL,
     PRIMARY KEY (`name`)
 )
     ENGINE = InnoDB

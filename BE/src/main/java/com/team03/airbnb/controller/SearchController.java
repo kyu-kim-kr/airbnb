@@ -1,10 +1,7 @@
 package com.team03.airbnb.controller;
 
 import com.team03.airbnb.dao.LocationDAO;
-import com.team03.airbnb.dto.HotelCardDTO;
-import com.team03.airbnb.dto.HotelCardWithCoordinateDTO;
-import com.team03.airbnb.dto.HotelDetailDTO;
-import com.team03.airbnb.dto.PriceDTO;
+import com.team03.airbnb.dto.*;
 import com.team03.airbnb.entity.Location;
 import com.team03.airbnb.service.HotelService;
 import com.team03.airbnb.service.LocationService;
@@ -31,8 +28,8 @@ public class SearchController {
     private PriceService priceService;
 
     @GetMapping
-    public List<Location> findAllLocations(@RequestParam(required = false) Integer limit) {
-        List<Location> list = locationService.findAll(limit);
+    public List<LocationDTO> findAllLocations(@RequestParam(required = false) Integer limit) {
+        List<LocationDTO> list = locationService.findAll(limit);
         return list;
     }
 
