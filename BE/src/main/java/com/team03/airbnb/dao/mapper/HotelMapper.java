@@ -1,8 +1,6 @@
 package com.team03.airbnb.dao.mapper;
 
 import com.team03.airbnb.entity.Hotel;
-import com.team03.airbnb.entity.Location;
-import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
