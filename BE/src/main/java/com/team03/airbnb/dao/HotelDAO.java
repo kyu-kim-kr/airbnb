@@ -1,6 +1,7 @@
 package com.team03.airbnb.dao;
 
 import com.team03.airbnb.dao.mapper.HotelMapper;
+import com.team03.airbnb.dao.mapper.PriceMapper;
 import com.team03.airbnb.entity.Hotel;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -22,6 +23,12 @@ public class HotelDAO {
     public List<Hotel> findAllHotelCardsByLocationName(String locationName) {
         String query = "select * from hotel where location_name = " + "\'" + locationName + "\'";
         List<Hotel> hotels = this.jdbcTemplate.query(query, new HotelMapper());
+        return hotels;
+    }
+
+    public List<Hotel> findAllPricesByLocationName(String locationName) {
+        String query = "select price from hotel where location_name = " + "\'" + locationName + "\'";
+        List<Hotel> hotels = this.jdbcTemplate.query(query, new PriceMapper());
         return hotels;
     }
 
