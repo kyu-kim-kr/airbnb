@@ -2,6 +2,7 @@ package com.team03.airbnb.controller;
 
 import com.team03.airbnb.dao.LocationDAO;
 import com.team03.airbnb.dto.HotelCardDTO;
+import com.team03.airbnb.dto.HotelCardWithCoordinateDTO;
 import com.team03.airbnb.dto.HotelDetailDTO;
 import com.team03.airbnb.entity.Location;
 import com.team03.airbnb.service.HotelService;
@@ -33,8 +34,14 @@ public class SearchController {
     }
 
     @GetMapping("/detail/{id}")
-    public HotelDetailDTO findHotelDetailByID(@PathVariable Long id) {
+    public HotelDetailDTO findHotelDetailById(@PathVariable Long id) {
         HotelDetailDTO hotelDetailDTO = hotelService.findHotelDetailByID(id);
         return hotelDetailDTO;
+    }
+
+    @GetMapping("/coordinate")
+    public List<HotelCardWithCoordinateDTO> findHotelsByCoordinate(@RequestParam Double x, @RequestParam Double y, @RequestParam Double zoom) {
+        List<HotelCardWithCoordinateDTO> list = hotelService.findHotelsAroundCurrentLocation(x, y, zoom);
+       return list;
     }
 }

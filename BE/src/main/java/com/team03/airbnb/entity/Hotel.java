@@ -15,6 +15,8 @@ public class Hotel {
     private String description;
     private Integer price;
 
+    private Coordinate coordinate; // 여기에 진짜 넣기 싫은데..
+
     public Long getId() {
         return id;
     }
@@ -117,5 +119,13 @@ public class Hotel {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
+
+    public void setCoordinate(Coordinate coordinate) {
+        this.coordinate = coordinate;
     }
 }
