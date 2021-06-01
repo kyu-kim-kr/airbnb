@@ -14,6 +14,8 @@ public class LocationMapper implements RowMapper<Location> {
         location.setDistance(rs.getInt("distance"));
         location.setAvatarUrl(rs.getString("avatar_url"));
         location.setName(rs.getString("name"));
+        location.setX(rs.getDouble("x"));
+        location.setY(rs.getDouble("y"));
         return location;
     }
 }

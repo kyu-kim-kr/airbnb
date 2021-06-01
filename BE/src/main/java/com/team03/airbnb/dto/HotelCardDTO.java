@@ -2,6 +2,11 @@ package com.team03.airbnb.dto;
 
 import com.team03.airbnb.entity.Hotel;
 
+import java.util.List;
+import java.util.Random;
+
+import static com.team03.airbnb.dto.util.Converter.toList;
+
 public class HotelCardDTO {
     private Long id;
     private String imageUrl;
@@ -46,11 +51,21 @@ public class HotelCardDTO {
     public static HotelCardDTO of(Hotel hotel) {
         return new HotelCardDTO(
                 hotel.getId(),
-                hotel.getImageUrl(),
+                getRepresentativeImageUrl(hotel.getImageUrl()),
                 hotel.getTitle(),
                 hotel.getReviewStarPoint(),
                 hotel.getReviewCount(),
                 hotel.getPrice()
         );
+    }
+
+    private static String getRepresentativeImageUrl(String imageUrl) {
+        List<String> list = toList(imageUrl);
+        if (list.size() == 0) {
+            return null;
+        } else {
+            String thumbnail = list.get(new Random().nextInt(list.size() - 1));
+            return thumbnail;
+        }
     }
 }
