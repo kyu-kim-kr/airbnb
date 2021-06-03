@@ -55,4 +55,9 @@ public class SearchController {
     public PriceDTO findAllPricesByLocationName(@RequestParam String locationName) {
         return priceService.findAllPricesByLocationName(locationName);
     }
+
+    @GetMapping("/prices/detail")
+    public PriceDetailDTO findAllPricesDetailByLocationName(@RequestParam String locationName) {
+        return priceService.findAllPricesDetailByLocationName(locationName);
+    }
 }
