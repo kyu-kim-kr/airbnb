@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `airbnb`.`host`
 (
     `id`         INT(11)     NOT NULL AUTO_INCREMENT,
     `name`       VARCHAR(45) NULL DEFAULT NULL,
-    `avatar_url` VARCHAR(45) NULL DEFAULT NULL,
+    `avatar_url` VARCHAR(255) NULL DEFAULT NULL,
     PRIMARY KEY (`id`)
 )
     ENGINE = InnoDB
