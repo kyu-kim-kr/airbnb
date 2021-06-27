@@ -1,0 +1,6 @@
+<bean id="dataSource" class="com.team03.airbnb.dao.*" destroy-method="close">
+    <property name="driverClassName" value="${spring.datasource.driver-class-name}"/>
+    <property name="url" value="${spring.datasource.url}"/>
+    <property name="username" value="${spring.datasource.username}"/>
+    <property name="password" value="${spring.datasource.password}"/>
+</bean>
